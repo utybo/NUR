@@ -88,7 +88,6 @@ buildDotnetModule rec {
 
       Compared to Git's built-in credential helpers (Windows: wincred, macOS: osxkeychain, Linux: gnome-keyring/libsecret) which provides single-factor authentication support working on any HTTP-enabled Git repository, GCM provides multi-factor authentication support for Azure DevOps, Azure DevOps Server (formerly Team Foundation Server), GitHub, Bitbucket, and GitLab.
     '';
-    sourceProvenance = with sourceTypes; [ binaryBytecode ];
     license = licenses.mit;
     platforms = [ "x86_64-linux" ];
     mainProgram = "git-credential-manager-core";
