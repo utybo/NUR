@@ -12,7 +12,6 @@
 let
   appName = "kuro";
   executableName = appName;
-  version = "8.1.4";
   electron = electron_20;
 in
 mkYarnPackage rec {
@@ -26,7 +25,7 @@ mkYarnPackage rec {
     hash = "sha256-T67zHspUkwL/YrocnGhaLOz7SvcAV8FFIukCQzEiaiQ=";
   };
 
-  packageJson = ./package.json;
+  packageJSON = ./package.json;
   yarnLock = ./yarn.lock;
 
   nativeBuildInputs = [ makeWrapper ];
@@ -85,7 +84,6 @@ mkYarnPackage rec {
     '';
     homepage = "https://github.com/pythonInRelay/kuro";
     license = licenses.mit;
-    # maintainers = maintainers.ckopo;
     inherit (electron.meta) platforms;
   };
 }
