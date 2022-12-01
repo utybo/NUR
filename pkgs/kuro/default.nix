@@ -27,6 +27,7 @@ mkYarnPackage rec {
 
   packageJSON = ./package.json;
   yarnLock = ./yarn.lock;
+  yarnNix = ./yarn.nix;
 
   nativeBuildInputs = [ makeWrapper ];
 
