@@ -18,7 +18,7 @@ jobs:
         # The repo name as used in
         # https://github.com/nix-community/NUR/blob/master/repos.json
         nurRepo:
-          - <YOUR_REPO_NAME>
+          - utybo
         cachixName:
           - utybo
         nixPath:
