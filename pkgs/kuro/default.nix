@@ -14,21 +14,20 @@ let
   executableName = name;
   version = "8.1.4";
   electron = electron_18;
-  srcGitHub = fetchFromGitHub {
-    owner = "davidsmorais";
-    repo = name;
-    rev = "v${version}";
-    hash = "sha256-T67zHspUkwL/YrocnGhaLOz7SvcAV8FFIukCQzEiaiQ=";
-  };
 in
 mkYarnPackage rec {
   pname = name;
   version = "8.1.6";
 
-  src = srcGitHub;
+  src = fetchFromGitHub {
+    owner = "davidsmorais";
+    repo = name;
+    rev = "v${version}";
+    hash = "sha256-T67zHspUkwL/YrocnGhaLOz7SvcAV8FFIukCQzEiaiQ=";
+  };
 
-  packageJson = "${src}/package.json";
-  yarnLock = "${src}/yarn.lock";
+  packageJson = ./package.json;
+  yarnLock = ./yarn.lock;
 
   nativeBuildInputs = [ makeWrapper ];
 
