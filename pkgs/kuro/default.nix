@@ -13,18 +13,18 @@ let
   executableName = "kuro";
   version = "8.1.4";
   electron = electron_18;
-
-in
-mkYarnPackage rec {
-  pname = "kuro";
-  version = "8.1.6";
-
   src = fetchFromGitHub {
     owner = "davidsmorais";
     repo = pname;
     rev = "v${version}";
     hash = "sha256-T67zHspUkwL/YrocnGhaLOz7SvcAV8FFIukCQzEiaiQ=";
   };
+in
+mkYarnPackage rec {
+  pname = "kuro";
+  version = "8.1.6";
+
+  src = src;
 
   nativeBuildInputs = [ makeWrapper ];
 
