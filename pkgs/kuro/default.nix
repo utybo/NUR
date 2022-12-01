@@ -5,26 +5,29 @@
 , makeWrapper
 , makeDesktopItem
 , mkYarnPackage
-, electron_18
+, electron_20
 , yarn2nix
 }:
 
 let
-  executableName = "kuro";
-  version = "8.1.4";
-  electron = electron_18;
+  appName = "kuro";
+  executableName = appName;
+  electron = electron_20;
+in
+mkYarnPackage rec {
+  name = appName;
+  version = "8.1.6";
+
   src = fetchFromGitHub {
     owner = "davidsmorais";
-    repo = pname;
+    repo = name;
     rev = "v${version}";
     hash = "sha256-T67zHspUkwL/YrocnGhaLOz7SvcAV8FFIukCQzEiaiQ=";
   };
-in
-mkYarnPackage rec {
-  pname = "kuro";
-  version = "8.1.6";
 
-  src = src;
+  packageJSON = ./package.json;
+  yarnLock = ./yarn.lock;
+  yarnNix = ./yarn.nix;
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -82,7 +85,6 @@ mkYarnPackage rec {
     '';
     homepage = "https://github.com/pythonInRelay/kuro";
     license = licenses.mit;
-    # maintainers = maintainers.ckopo;
     inherit (electron.meta) platforms;
   };
 }
