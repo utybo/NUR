@@ -22,7 +22,7 @@ mkYarnPackage rec {
     owner = "davidsmorais";
     repo = name;
     rev = "v${version}";
-    hash = "sha256-T67zHspUkwL/YrocnGhaLOz7SvcAV8FFIukCQzEiaiQ=";
+    hash = "sha256-+4HgH8HBQ+KIN2u+3ZsPMORPl5C7BO+rXR0RsA79EGg=";
   };
 
   packageJSON = ./package.json;
