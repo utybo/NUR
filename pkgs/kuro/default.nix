@@ -5,18 +5,18 @@
 , makeWrapper
 , makeDesktopItem
 , mkYarnPackage
-, electron_20
+, electron_22
 , yarn2nix
 }:
 
 let
   appName = "kuro";
   executableName = appName;
-  electron = electron_20;
+  electron = electron_22;
 in
 mkYarnPackage rec {
   name = appName;
-  version = "8.1.6";
+  version = "8.1.8";
 
   src = fetchFromGitHub {
     owner = "davidsmorais";
