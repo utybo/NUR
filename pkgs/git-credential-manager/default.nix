@@ -56,7 +56,6 @@ buildDotnetModule rec {
   buildInputs = [ git ];
 
   dotnet-sdk = dotnetCorePackages.sdk_6_0;
-  # dotnetFlags = [ "--runtime linux-x64" ];
   dotnetInstallFlags = [ "--framework net6.0" ];
 
   # For some reason, Avalonia **really** wants to probe a bunch of names for
@@ -89,7 +88,7 @@ buildDotnetModule rec {
       Compared to Git's built-in credential helpers (Windows: wincred, macOS: osxkeychain, Linux: gnome-keyring/libsecret) which provides single-factor authentication support working on any HTTP-enabled Git repository, GCM provides multi-factor authentication support for Azure DevOps, Azure DevOps Server (formerly Team Foundation Server), GitHub, Bitbucket, and GitLab.
     '';
     license = licenses.mit;
-    platforms = [ "x86_64-linux" ];
+    platforms = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
     mainProgram = "git-credential-manager-core";
   };
 
